@@ -1,0 +1,33 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             x:Class="ToDoListMainApp.MainPage"
+             Title="MainPage">
+
+    <ScrollView>
+        <VerticalStackLayout
+            Padding="30,0"
+            Spacing="25"
+            VerticalOptions="Center"
+            HorizontalOptions="Center">
+            <StackLayout x:Name="TaskAdd" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
+                <Entry x:Name="TaskEntry" Placeholder="Enter Task Here"/>
+                <Button x:Name="SubmitTask" Text="Submit" VerticalOptions="Center" Clicked="OnSubmitButtonClicked"/>
+            </StackLayout>
+            <ListView x:Name="TaskListView" HasUnevenRows="True" HorizontalOptions="CenterAndExpand">
+                <ListView.ItemTemplate>
+                    <DataTemplate>
+                        <ViewCell>
+                            <StackLayout Padding="10" Orientation="Horizontal">
+                                <Button Text ="Delete" HorizontalOptions="End" Clicked="OnDeleteButtonClicked"/>
+                                <CheckBox IsChecked="{Binding IsComplete}" CheckedChanged="OnTaskCheckedChanged" VerticalOptions="Center"/>
+                                <Label Text="{Binding Id}"/>
+                                <Label Text="{Binding Name}" FontSize="16"/>
+                            </StackLayout>
+                        </ViewCell>
+                    </DataTemplate>
+                </ListView.ItemTemplate>
+            </ListView>
+        </VerticalStackLayout>
+    </ScrollView>
+</ContentPage>
