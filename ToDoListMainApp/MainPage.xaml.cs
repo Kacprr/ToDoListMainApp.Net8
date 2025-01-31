@@ -1,4 +1,5 @@
-﻿using Newtonsoft.Json;
+﻿using Microsoft.Maui.ApplicationModel;
+using Newtonsoft.Json;
 using System.Collections.ObjectModel;
 using System.Diagnostics;
 using System.Text;
@@ -28,6 +29,17 @@ namespace ToDoListMainApp
             }
         }
 
+        private void ThemeButton(object sender, EventArgs e)
+        {
+            if(Application.Current.RequestedTheme == AppTheme.Dark)
+            {
+                Application.Current.UserAppTheme = AppTheme.Light;
+            }
+            else
+            {
+                Application.Current.UserAppTheme = AppTheme.Dark;
+            }
+        }
         private async void OnSubmitButtonClicked(object sender, EventArgs e)
         {
             string taskText = TaskEntry.Text;

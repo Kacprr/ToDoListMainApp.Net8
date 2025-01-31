@@ -3,26 +3,24 @@
              xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
              x:Class="ToDoListMainApp.MainPage"
              Title="MainPage">
-
     <ScrollView>
         <VerticalStackLayout
-            Padding="30,0"
-            Spacing="25"
-            VerticalOptions="Center"
+            Spacing="40"
+            VerticalOptions="Start"
             HorizontalOptions="Center">
+            <Button Clicked ="ThemeButton" VerticalOptions="Start" HorizontalOptions="End" Text="Theme" FontSize="24"></Button>
             <StackLayout x:Name="TaskAdd" Orientation="Horizontal" VerticalOptions="Center" HorizontalOptions="Center">
-                <Entry x:Name="TaskEntry" Placeholder="Enter Task Here"/>
-                <Button x:Name="SubmitTask" Text="Submit" VerticalOptions="Center" Clicked="OnSubmitButtonClicked"/>
+                <Entry x:Name="TaskEntry" Placeholder="Enter Task Here" WidthRequest="300" FontSize="24"/>
+                <Button x:Name="SubmitTask" Text="Submit" VerticalOptions="End" Clicked="OnSubmitButtonClicked" FontSize="24"/>
             </StackLayout>
-            <ListView x:Name="TaskListView" HasUnevenRows="True" HorizontalOptions="CenterAndExpand">
+            <ListView x:Name="TaskListView" HasUnevenRows="True" HorizontalOptions="Center">
                 <ListView.ItemTemplate>
                     <DataTemplate>
                         <ViewCell>
                             <StackLayout Padding="10" Orientation="Horizontal">
-                                <Button Text ="Delete" HorizontalOptions="End" Clicked="OnDeleteButtonClicked"/>
+                                <Button Text ="Delete" HorizontalOptions="Start" Clicked="OnDeleteButtonClicked" FontSize="24"/>
                                 <CheckBox IsChecked="{Binding IsComplete}" CheckedChanged="OnTaskCheckedChanged" VerticalOptions="Center"/>
-                                <Label Text="{Binding Id}"/>
-                                <Label Text="{Binding Name}" FontSize="16"/>
+                                <Label HorizontalOptions="CenterAndExpand" Text="{Binding Name}" FontSize="24"/>
                             </StackLayout>
                         </ViewCell>
                     </DataTemplate>
